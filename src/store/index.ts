@@ -1,0 +1,12 @@
+import { applyMiddleware, combineReducers, createStore } from 'redux'
+import thunk from 'redux-thunk'
+
+const rootReducer = combineReducers({})
+
+export const store = createStore(rootReducer, applyMiddleware(thunk)) //подключаем thunk
+
+//типизируем сторе. получаем тип нашего состояния
+export type RootState = ReturnType<typeof store.getState>
+
+//получаем тип нашего диспатча
+export type AppDispatch = typeof store.dispatch
